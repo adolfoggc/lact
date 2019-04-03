@@ -1,10 +1,10 @@
 class PcUsagesController < ApplicationController
-  before_action :set_pc_usage, only: [:show, :edit, :update, :destroy]
+  before_action :set_pc_usage, only: [:show, :edit, :update, :destroy, :finish_usage]
 
   # GET /pc_usages
   # GET /pc_usages.json
   def index
-    @pc_usages = PcUsage.all
+    @pc_usages = PcUsage.all.order(:start_at)
   end
 
   # GET /pc_usages/1
@@ -25,6 +25,8 @@ class PcUsagesController < ApplicationController
   # POST /pc_usages.json
   def create
     @pc_usage = PcUsage.new(pc_usage_params)
+    @pc_usage.student_id = Student.where(registration: @pc_usage.student_id).first.id
+    @pc_usage.start_at = 3.hours.ago
 
     respond_to do |format|
       if @pc_usage.save
@@ -56,9 +58,21 @@ class PcUsagesController < ApplicationController
   def destroy
     @pc_usage.destroy
     respond_to do |format|
-      format.html { redirect_to pc_usages_url, notice: 'Pc usage was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Pc usage was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  ##############
+  def finish_usage
+    @pc_usage.end_at = 3.hours.ago
+    @pc_usage.save
+    @student_name = Student.where(registration: @pc_usage.student_id).first
+    redirect_to root_path, notice: "Sessão de #{@student_name} encerrada."
+  end
+
+  def verify_student
   end
 
   private

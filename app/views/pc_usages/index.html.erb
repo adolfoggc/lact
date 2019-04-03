@@ -1,28 +1,41 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Pc Usages</h1>
 
-<table>
-  <thead>
+<h1>Uso dos PCS - LACT3</h1>
+
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>Student</th>
-      <th>Pc</th>
-      <th>Start at</th>
-      <th>End at</th>
-      <th colspan="3"></th>
+      <th scope="col">Nome</th>
+      <th scope="col">Matrícula</th>
+      <th scope="col">Curso</th>
+      <th scope="col">Pc</th>
+      <th scope="col">Entrada</th>
+      <th scope="col">Saída Esperada</th>
+      <th scope="col">Saída Real</th>
+      <!--
+      <th colspan="3"></th>-->
     </tr>
   </thead>
 
   <tbody>
     <% @pc_usages.each do |pc_usage| %>
       <tr>
-        <td><%= pc_usage.student %></td>
-        <td><%= pc_usage.pc %></td>
-        <td><%= pc_usage.start_at %></td>
-        <td><%= pc_usage.end_at %></td>
-        <td><%= link_to 'Show', pc_usage %></td>
-        <td><%= link_to 'Edit', edit_pc_usage_path(pc_usage) %></td>
-        <td><%= link_to 'Destroy', pc_usage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= pc_usage.student.name %></td>
+        <td><%= pc_usage.student.registration %></td>
+        <td><%= pc_usage.student.admission %></td>
+        <td><%= pc_usage.pc.number %></td>
+        <% usage_time = pc_usage.start_at %>
+        <td><%= usage_time.strftime("%d/%m/%Y às %T") %></td>
+        <% usage_time += 1*60*60 %>
+        <td><%= usage_time.strftime("%d/%m/%Y às %T") %></td>
+        <% if pc_usage.end_at.nil? %> 
+          <td><%= link_to 'ENCERRAR', finish_usage_path(pc_usage) %></td>
+        <% else %>
+          <td><%= pc_usage.end_at.strftime("%d/%m/%Y às %T")  %></td>
+        <% end %><!--
+        <td><%# link_to 'Show', pc_usage %></td>
+        <td><%# link_to 'Edit', edit_pc_usage_path(pc_usage) %></td>
+        <td><%# link_to 'Destroy', pc_usage, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +43,4 @@
 
 <br>
 
-<%= link_to 'New Pc Usage', new_pc_usage_path %>
+<%= link_to 'Novo Uso', new_pc_usage_path %>
