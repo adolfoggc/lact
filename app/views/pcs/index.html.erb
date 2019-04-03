@@ -7,10 +7,10 @@
     <tr>
       <th>Number</th>
       <th>Status</th>
-      <th>Programs</th>
+      <th>Programas</th><!--
       <th>Row</th>
-      <th>Position in row</th>
-      <th>Complain</th>
+      <th>Position in row</th> -->
+      <th>Reclamações</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,13 +20,13 @@
       <tr>
         <td><%= pc.number %></td>
         <td><%= pc.status %></td>
-        <td><%= pc.programs %></td>
-        <td><%= pc.row %></td>
-        <td><%= pc.position_in_row %></td>
+        <td><%= pc.programs %></td> <!--
+        <td><%# pc.row %></td>
+        <td><%# pc.position_in_row %></td> -->
         <td><%= pc.complain %></td>
-        <td><%= link_to 'Show', pc %></td>
-        <td><%= link_to 'Edit', edit_pc_path(pc) %></td>
-        <td><%= link_to 'Destroy', pc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', pc, class: "btn btn-info" %></td>
+        <td><%= link_to 'Editar', edit_pc_path(pc), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Remover', pc, method: :delete, class: "btn btn-danger", data: { confirm: 'Tem Certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Pc', new_pc_path %>
+<%= link_to 'Novo Pc', new_pc_path %>

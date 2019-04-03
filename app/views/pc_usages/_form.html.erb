@@ -10,18 +10,23 @@
       </ul>
     </div>
   <% end %>
+  <table class="table">
+    <% if @pc_usage.student_id.nil? %>
+      <div class="field">
+        <tr><%= form.label :student_id, "Matrícula" %></tr>
+        <tr><%= form.text_field :student_id %></tr>
+      </div>
+    <% else %>
+      <%= hidden_field(:pc_usage, :student_id, value: @pc_usage.student_id ) %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :student_id %>
-    <%= form.text_field :student_id %>
+    <div class="field">
+      <tr><%= form.label :pc_id, "Nº do PC" %></tr>
+      <tr><%= form.text_field :pc_id %></tr>
+    </div>
+  </table>
+  <div class="actions"> 
+    <%= form.submit "Salvar", class: "btn btn-success" %>
   </div>
-
-  <div class="field">
-    <%= form.label :pc_id %>
-    <%= form.text_field :pc_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  
 <% end %>

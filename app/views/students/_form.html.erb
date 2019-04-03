@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :registration %>
-    <%= form.text_field :registration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :admission %>
-    <%= form.text_field :admission %>
-  </div>
-
+  <table class="table">
+    <div class="field">
+      <tr><%= form.label :name, "Nome" %> </tr>
+      <tr><%= form.text_field :name %></tr>
+    </div>
+    <div class="field">
+      <tr><%= form.label :registration, 'Matrícula' %></tr>
+      <tr><%= form.text_field :registration %></tr>
+    </div>
+    
+    <div class="field">
+      <tr><%= form.label :admission, 'Curso' %></tr>
+      <tr><%= form.text_field :admission %></tr>
+    </div>
+  </table>
+  <%= hidden_field(:student, :pc, value: @pc_id ) %>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Continuar", class: "btn btn-success" %>
   </div>
 <% end %>

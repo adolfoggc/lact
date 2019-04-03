@@ -17,6 +17,11 @@ class StudentsController < ApplicationController
     @student = Student.new
   end
 
+  def new_user
+    @student = Student.new
+    @pc_id = params[:pc]
+  end
+
   # GET /students/1/edit
   def edit
   end
@@ -24,11 +29,13 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
-
+    @student = Student.new
+    @student.name = params[:student][:name]
+    @student.registration = params[:student][:registration]
+    @student.admission = params[:student][:admission]
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to complete_new_user_path(params[:student][:registration], params[:student][:pc]), method: 'post'}
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -70,5 +77,6 @@ class StudentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
       params.require(:student).permit(:name, :registration, :admission)
+      params.permit(:pc_id)
     end
 end

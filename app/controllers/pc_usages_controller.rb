@@ -1,5 +1,6 @@
 class PcUsagesController < ApplicationController
   before_action :set_pc_usage, only: [:show, :edit, :update, :destroy, :finish_usage]
+  before_action :verify_student, only: [:create]
 
   # GET /pc_usages
   # GET /pc_usages.json
@@ -30,7 +31,7 @@ class PcUsagesController < ApplicationController
 
     respond_to do |format|
       if @pc_usage.save
-        format.html { redirect_to @pc_usage, notice: 'Pc usage was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Pc usage was successfully created.' }
         format.json { render :show, status: :created, location: @pc_usage }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class PcUsagesController < ApplicationController
   def update
     respond_to do |format|
       if @pc_usage.update(pc_usage_params)
-        format.html { redirect_to @pc_usage, notice: 'Pc usage was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Pc usage was successfully updated.' }
         format.json { render :show, status: :ok, location: @pc_usage }
       else
         format.html { render :edit }
@@ -73,6 +74,20 @@ class PcUsagesController < ApplicationController
   end
 
   def verify_student
+    if Student.where(registration: params[:pc_usage][:student_id]).count == 0
+      redirect_to new_user_path( params[:pc_usage][:pc_id] )
+    end
+  end
+
+  def complete_new_user
+    #@student_id = params[:student_id]
+    @pc_id = params[:pc_id]
+    @pc_usage = PcUsage.new
+    @pc_usage.student_id = Student.where(registration: params[:student_id]).first.id
+    @pc_usage.pc_id = params[:pc_id]
+    @pc_usage.start_at = 3.hours.ago
+    @pc_usage.save
+    redirect_to root_path
   end
 
   private
