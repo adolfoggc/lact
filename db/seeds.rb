@@ -6,13 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Student.create(name: "Fulano de Tal", registration: "111111", admission: "Ciências Ocultas")
-Student.create(name: "Bel Tranno", registration: "222222", admission: "Letras Apagadas")
-Student.create(name: "Junim Zoião", registration: "333333", admission: "Desocupado")
+#Student.create(name: "Fulano de Tal", registration: "111111", admission: "Ciências Ocultas")
+#Student.create(name: "Bel Tranno", registration: "222222", admission: "Letras Apagadas")
+#Student.create(name: "Junim Zoião", registration: "333333", admission: "Desocupado")
 
+
+Pc.create(number: 1, status: "Notebook")
 x = 1
 30.times do 
-	Pc.create(number: x, status: "ok")
 	x+=1
+	Pc.create(number: x, status: "ok")
 end
-Pc.create(number: 0, status: "Notebook")
