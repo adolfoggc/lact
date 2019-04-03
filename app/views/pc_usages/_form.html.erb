@@ -1,0 +1,37 @@
+<%= form_with(model: pc_usage, local: true) do |form| %>
+  <% if pc_usage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pc_usage.errors.count, "error") %> prohibited this pc_usage from being saved:</h2>
+
+      <ul>
+      <% pc_usage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.text_field :student_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pc_id %>
+    <%= form.text_field :pc_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_at %>
+    <%= form.datetime_select :start_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_at %>
+    <%= form.datetime_select :end_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

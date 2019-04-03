@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_012915) do
+ActiveRecord::Schema.define(version: 2019_04_03_030523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pc_usages", force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "pc_id"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pc_id"], name: "index_pc_usages_on_pc_id"
+    t.index ["student_id"], name: "index_pc_usages_on_student_id"
+  end
+
+  create_table "pcs", force: :cascade do |t|
+    t.string "number"
+    t.string "status"
+    t.string "programs"
+    t.string "row"
+    t.string "position_in_row"
+    t.string "complain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
@@ -23,4 +45,6 @@ ActiveRecord::Schema.define(version: 2019_04_03_012915) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pc_usages", "pcs"
+  add_foreign_key "pc_usages", "students"
 end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @pc_usage.student %>
+</p>
+
+<p>
+  <strong>Pc:</strong>
+  <%= @pc_usage.pc %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @pc_usage.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @pc_usage.end_at %>
+</p>
+
+<%= link_to 'Edit', edit_pc_usage_path(@pc_usage) %> |
+<%= link_to 'Back', pc_usages_path %>
