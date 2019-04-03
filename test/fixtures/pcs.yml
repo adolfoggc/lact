@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  status: MyString
+  programs: MyString
+  row: MyString
+  position_in_row: MyString
+  complain: MyString
+
+two:
+  number: MyString
+  status: MyString
+  programs: MyString
+  row: MyString
+  position_in_row: MyString
+  complain: MyString

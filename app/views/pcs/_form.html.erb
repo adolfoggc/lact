@@ -1,0 +1,47 @@
+<%= form_with(model: pc, local: true) do |form| %>
+  <% if pc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pc.errors.count, "error") %> prohibited this pc from being saved:</h2>
+
+      <ul>
+      <% pc.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :programs %>
+    <%= form.text_field :programs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :row %>
+    <%= form.text_field :row %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position_in_row %>
+    <%= form.text_field :position_in_row %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complain %>
+    <%= form.text_field :complain %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

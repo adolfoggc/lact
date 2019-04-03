@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @pc.number %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @pc.status %>
+</p>
+
+<p>
+  <strong>Programs:</strong>
+  <%= @pc.programs %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @pc.row %>
+</p>
+
+<p>
+  <strong>Position in row:</strong>
+  <%= @pc.position_in_row %>
+</p>
+
+<p>
+  <strong>Complain:</strong>
+  <%= @pc.complain %>
+</p>
+
+<%= link_to 'Edit', edit_pc_path(@pc) %> |
+<%= link_to 'Back', pcs_path %>
