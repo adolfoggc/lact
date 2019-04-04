@@ -1,3 +1,27 @@
+<style>
+  .radio_container {
+    border: 1px solid gray;
+    display: inline-block;
+    margin: 1px -1px;
+    border-radius: 5px;
+    vertical-align: middle;
+    padding: 3px 3px 3px 3px;
+    width: 50px;
+  }
+
+  .radio_container label {
+    margin: 0px; 
+  }
+
+  .row {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 1px 3px;
+    margin: 2px 4px;
+  }
+</style>
+
 <%= form_with(model: pc_usage, local: true) do |form| %>
   <% if pc_usage.errors.any? %>
     <div id="error_explanation">
@@ -10,23 +34,287 @@
       </ul>
     </div>
   <% end %>
-  <table class="table">
+  
     <% if @pc_usage.student_id.nil? %>
       <div class="field">
-        <tr><%= form.label :student_id, "Matrícula" %></tr>
-        <tr><%= form.text_field :student_id %></tr>
+        <%= form.label :student_id, "Matrícula" %>
+        <%= form.text_field :student_id %>
       </div>
     <% else %>
       <%= hidden_field(:pc_usage, :student_id, value: @pc_usage.student_id ) %>
     <% end %>
 
     <div class="field">
-      <tr><%= form.label :pc_id, "Nº do PC" %></tr>
-      <tr><%= form.text_field :pc_id %></tr>
+      PC:
+      <br> <!-- primeira fileira -->
+      <div class="row">
+        <% x = 1 %>
+        <div class="radio_container">
+          <%= form.label :pc_id, "24" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>  
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "23" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "06"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <br> <!-- segunda fileira -->
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "18" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "17" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "16"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <br> <!-- terceira fileira -->
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "?" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "?" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "?"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "5" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "12" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <br> <!-- quarta fileira -->
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "01"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN" %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+        <div class="radio_container">
+          <%= form.label :pc_id, "SN"  %>
+          <% x +=1 %>
+          <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
+            <%= form.radio_button :pc_id, x, disabled: true %>
+          <% else %>
+            <%= form.radio_button :pc_id, x %>
+          <% end %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <%= form.label :pc_id, "Notebook Pessoal"  %>
+        <%= form.radio_button :pc_id, 1 %>
+      </div>
     </div>
-  </table>
+    <br>
   <div class="actions"> 
     <%= form.submit "Salvar", class: "btn btn-success" %>
   </div>
   
 <% end %>
+
+<!--
+<br>
+.checkbox input, .checkbox label{
+    display: inline-block;
+    vertical-align: middle;
+}
+.checkbox label{margin-right:20px;}
+
+.input-area {
+  width: 45px;
+  display: inline-block;
+}
+
+.checkbox {
+  display: inline-block;
+  border: black solid 1px;
+  margin: 1px -1px;
+  padding: 2px;
+  border-radius:5px;
+  min-width: 150px;
+}
+-->
