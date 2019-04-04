@@ -5,7 +5,8 @@ class PcUsagesController < ApplicationController
   # GET /pc_usages
   # GET /pc_usages.json
   def index
-    @pc_usages = PcUsage.all.order(:start_at)
+    @pc_usages = PcUsage.all.order(:start_at).where(end_at: nil)
+    @usage_log = PcUsage.all.order(:start_at).where.not(end_at: nil)
   end
 
   # GET /pc_usages/1

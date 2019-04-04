@@ -25,7 +25,9 @@
       <tr><%= form.text_field :admission %></tr>
     </div>
   </table>
-  <%= hidden_field(:student, :pc, value: @pc_id ) %>
+  <% if !@pc_id.nil? %>
+    <%= hidden_field(:student, :pc, value: @pc_id ) %>
+  <% end %>
   <div class="actions">
     <%= form.submit "Continuar", class: "btn btn-success" %>
   </div>

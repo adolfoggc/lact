@@ -35,8 +35,12 @@ class StudentsController < ApplicationController
     @student.admission = params[:student][:admission]
     respond_to do |format|
       if @student.save
-        format.html { redirect_to complete_new_user_path(params[:student][:registration], params[:student][:pc]), method: 'post'}
-        format.json { render :show, status: :created, location: @student }
+        if params[:student][:pc].nil?
+          format.html { redirect_to students_path}
+        else
+          format.html { redirect_to complete_new_user_path(params[:student][:registration], params[:student][:pc]), method: 'post'}
+          format.json { render :show, status: :created, location: @student }
+        end
       else
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }

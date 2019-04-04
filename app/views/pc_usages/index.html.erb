@@ -1,4 +1,9 @@
-
+<style>
+  td, tr {
+    vertical-align: middle !important;
+    text-align: center !important;
+  }
+</style>
 
 <h1>Uso dos PCS - LACT3</h1>
 
@@ -19,6 +24,26 @@
   <tbody>
     <% @pc_usages.each do |pc_usage| %>
       <tr>
+        <td><%= pc_usage.student.name %></td>
+        <td><%= pc_usage.student.registration %></td>
+        <td><%= pc_usage.student.admission %></td>
+        <td><%= pc_usage.pc.number %></td>
+        <% usage_time = pc_usage.start_at %>
+        <td><%= usage_time.strftime("%d/%m/%Y às %T") %></td>
+        <% usage_time += 1*60*60 %>
+        <td><%= usage_time.strftime("%d/%m/%Y às %T") %></td>
+        <% if pc_usage.end_at.nil? %> 
+          <td><%= link_to 'ENCERRAR', finish_usage_path(pc_usage), class: "btn btn-warning" %></td>
+        <% else %>
+          <td><%= pc_usage.end_at.strftime("%d/%m/%Y às %T")  %></td>
+        <% end %><!--
+        <td><%# link_to 'Show', pc_usage %></td> -->
+        <td><%= link_to 'Editar', edit_pc_usage_path(pc_usage), class: "btn btn-info" %></td>
+        <td><%= link_to 'Remover', pc_usage, method: :delete, class: "btn btn-danger", data: { confirm: 'Tem certeza?' } %></td>
+      </tr>
+    <% end %>
+    <% @usage_log.each do |pc_usage| %>
+      <tr style="background-color: gray; color: #FFF">
         <td><%= pc_usage.student.name %></td>
         <td><%= pc_usage.student.registration %></td>
         <td><%= pc_usage.student.admission %></td>
