@@ -4,7 +4,7 @@ class PcsController < ApplicationController
   # GET /pcs
   # GET /pcs.json
   def index
-    @pcs = Pc.all
+    @pcs = Pc.all.order(:id)
   end
 
   # GET /pcs/1

@@ -168,7 +168,7 @@
       <br> <!-- terceira fileira -->
       <div class="row">
         <div class="radio_container">
-          <%= form.label :pc_id, "?" %>
+          <%= form.label :pc_id, "15" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -177,7 +177,7 @@
           <% end %>
         </div>
         <div class="radio_container">
-          <%= form.label :pc_id, "?" %>
+          <%= form.label :pc_id, "22" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -186,7 +186,7 @@
           <% end %>
         </div>
         <div class="radio_container">
-          <%= form.label :pc_id, "?"  %>
+          <%= form.label :pc_id, "11"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>

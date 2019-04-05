@@ -27,6 +27,8 @@
   </table>
   <% if !@pc_id.nil? %>
     <%= hidden_field(:student, :pc, value: @pc_id ) %>
+  <% else %>
+    <%= hidden_field(:student, :pc, value: 0 ) %>
   <% end %>
   <div class="actions">
     <%= form.submit "Continuar", class: "btn btn-success" %>

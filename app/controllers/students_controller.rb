@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
     @student.admission = params[:student][:admission]
     respond_to do |format|
       if @student.save
-        if params[:student][:pc].nil?
+        if params[:student][:pc] == 0
           format.html { redirect_to students_path}
         else
           format.html { redirect_to complete_new_user_path(params[:student][:registration], params[:student][:pc]), method: 'post'}
@@ -52,9 +52,13 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1.json
   def update
     respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to root_path, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
+      if @student.update(student_params) 
+        if params[:student][:pc] == 0
+          redirect_to students_path
+        else
+          format.html { redirect_to root_path, notice: 'Student was successfully updated.' }
+          format.json { render :show, status: :ok, location: @student }
+        end
       else
         format.html { render :edit }
         format.json { render json: @student.errors, status: :unprocessable_entity }
