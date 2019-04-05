@@ -18,22 +18,12 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.select(:status, [['OK', 'OK'], ['DEFEITO', 'DEFEITO'], ['RECLAMAÇÕES', 'RECLAMAÇÕES'], ]) %>
   </div>
 
   <div class="field">
     <%= form.label :programs %>
     <%= form.text_area :programs %>
-  </div>
-
-  <div class="field">
-    <%= form.label :row %>
-    <%= form.text_field :row %>
-  </div>
-
-  <div class="field">
-    <%= form.label :position_in_row %>
-    <%= form.text_field :position_in_row %>
   </div>
 
   <div class="field">

@@ -11,9 +11,9 @@
 #Student.create(name: "Junim Zoião", registration: "333333", admission: "Desocupado")
 
 
-Pc.create(number: 1, status: "Notebook")
+Pc.create(number: 'Notebook', status: "OK")
 x = 1
 30.times do 
 	x+=1
-	Pc.create(number: x, status: "ok")
+	Pc.create(number: 'SN', status: "OK")
 end

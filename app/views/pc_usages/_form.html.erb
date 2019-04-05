@@ -49,8 +49,14 @@
       <br> <!-- primeira fileira -->
       <div class="row">
         <% x = 1 %>
-        <div class="radio_container">
-          <%= form.label :pc_id, "24" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_2, "24" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -58,8 +64,14 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>  
         </div>
-        <div class="radio_container">
-          <%= form.label :pc_id, "23" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_3, "23" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -67,8 +79,14 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
-          <%= form.label :pc_id, "06"  %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_4, "06"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -78,8 +96,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="radio_container">
-          <%= form.label :pc_id, "SN" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_5, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -87,8 +111,14 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
-          <%= form.label :pc_id, "SN" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_6, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -96,8 +126,14 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
-          <%= form.label :pc_id, "SN"  %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_7, "SN"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -108,8 +144,14 @@
       </div>
       <br> <!-- segunda fileira -->
       <div class="row">
-        <div class="radio_container">
-          <%= form.label :pc_id, "18" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_8, "18" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -117,8 +159,14 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
-          <%= form.label :pc_id, "17" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id_9, "17" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -126,7 +174,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "16"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -137,7 +191,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -146,7 +206,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -155,7 +221,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -167,7 +239,13 @@
       </div>
       <br> <!-- terceira fileira -->
       <div class="row">
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "15" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -176,7 +254,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "22" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -185,7 +269,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "11"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -196,8 +286,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="radio_container">
-          <%= form.label :pc_id, "5" %>
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
+          <%= form.label :pc_id, "05" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
             <%= form.radio_button :pc_id, x, disabled: true %>
@@ -205,7 +301,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "12" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -214,7 +316,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -226,7 +334,13 @@
       </div>
       <br> <!-- quarta fileira -->
       <div class="row">
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -235,7 +349,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -244,7 +364,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "01"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -255,7 +381,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -264,7 +396,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN" %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -273,7 +411,13 @@
             <%= form.radio_button :pc_id, x %>
           <% end %>
         </div>
-        <div class="radio_container">
+      <% if @pc_info[x].status.upcase.eql?('OK') %>
+        <div class="radio_container" style="background-color: #43db50;">
+      <% elsif pc_info[x].status.upcase.eql?('DEFEITO') %>
+        <div class="radio_container" style="background-color: red;">
+      <% else %>
+        <div class="radio_container" style="background-color: yellow;">
+      <% end %>
           <%= form.label :pc_id, "SN"  %>
           <% x +=1 %>
           <% if PcUsage.where(pc_id: x).where(end_at: nil).count > 0 %>
@@ -284,7 +428,7 @@
         </div>
       </div>
       <br>
-      <div class="row">
+      <div class="row" style="background-color: #43db50;">
         <%= form.label :pc_id, "Notebook Pessoal"  %>
         <%= form.radio_button :pc_id, 1 %>
       </div>

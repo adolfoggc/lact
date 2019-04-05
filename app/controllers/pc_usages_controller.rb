@@ -17,6 +17,7 @@ class PcUsagesController < ApplicationController
   # GET /pc_usages/new
   def new
     @pc_usage = PcUsage.new
+    @pc_info = Pc.all.order(:id)
   end
 
   # GET /pc_usages/1/edit

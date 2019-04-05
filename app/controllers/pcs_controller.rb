@@ -69,6 +69,6 @@ class PcsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pc_params
-      params.require(:pc).permit(:number, :status, :programs, :row, :position_in_row, :complain)
+      params.require(:pc).permit(:number, :status, :programs, :complain)
     end
 end
